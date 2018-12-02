@@ -1,0 +1,149 @@
+.chrome-plugin-demo-panel {
+	position: fixed;
+  top: 10px;
+	right: 0;
+	bottom: 10px;
+  max-width: 400px;
+	background: #272b2f;
+	padding: 10px;
+  box-shadow: 0px 0px 10px #002761;
+  border-radius: 3px;
+  color: silver;
+  z-index: 99999;
+  overflow-y: auto;
+}
+.chrome-plugin-demo-panel a{
+	color: white;
+    text-decoration: none;
+	font-size: 16px;
+}
+.chrome-plugin-demo-panel a:hover{
+    text-decoration: underline;
+    color: #ffee08;
+}
+.chrome-plugin-simple-tip {
+    position: fixed;
+    left: 20px;
+    padding: 16px 10px;
+    top: 30px;
+    color: white;
+    min-width: 150px;
+    max-width: 700px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 16px;
+	  background: #272b2f;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+	transition: top .4s;
+}
+.animated {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+@-webkit-keyframes slideInLeft {
+    0% {
+        -webkit-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0);
+        visibility: visible
+    }
+
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        -webkit-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0);
+        visibility: visible
+    }
+
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+}
+
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft
+}
+
+.vocabul-class-selected-text-handler {
+  width: 16px;
+  height: 14px;
+  border-radius: 0 40% 40% 0;
+  /* background-color: rgba(66, 142, 203, .4); */
+  background-color: rgba(213, 23, 155, 0.4);
+  display: none;
+  position: fixed;
+}
+.vocabul-class-selected-text-handler.show {
+  display: inline-block;
+}
+
+.vocabul-class-word-c {
+  border-top: 1px solid black;
+  margin-top: 10px;
+}
+
+.vocabul-class-word-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.vocabul-class-word-header-tools {
+  display: flex;
+}
+.vocabul-class-word-learnCount {
+  color: gray;
+}
+
+.vocabul-class-word-delete {
+  color: red;
+  cursor: pointer;
+  margin: 2px 0 0 10px;
+  background-color: #ffffffe0;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  font-size: 16px;
+}
+
+.vocabul-class-word, .vocabul-class-word-exp {
+  text-align: left;
+}
+
+.vocabul-class-word {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.vocabul-class-word-exp {
+  font-size: 13px;
+}
+
+.vocabul-class-phonetic {
+  font-size: 12px;
+  color: gray;
+}
+.vocabul-class-phonetic .phonetic {
+  font-size: 15px;
+  color: #3cf043;
+}
+
+.vocabul-class-pos {
+  color: gray;
+}
+
+.vocabul-class-webkey {
+  color: #ffc107;
+}

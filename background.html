@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vocabul</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+	html,body{height: 100%;font-size: 16px;}
+	body{font-family: 'Microsoft Yahei';margin:0;padding:0;}
+	.container {
+		width: 1024px;
+		margin: 0 auto;
+	}
+   #vocabul-id-bk-get-words {
+     width: 100px;
+     height: 24px;
+     margin: 10px auto;
+     display: block;
+     border-radius: 4px;
+     background-color: #03A9F4;
+     color: white;
+     font-size: 14px;
+     font-weight: bold;
+     outline: none;
+     cursor: pointer;
+   }
+   .vocabul-class-bk-word-list {
+	   background: #272b2f;
+     color: silver;
+     padding: 10px;
+     border-radius: 6px;
+   }
+	</style>
+  <link rel="stylesheet" href="./css/custom.css"/>
+</head>
+<body>
+  <button id="vocabul-id-bk-get-words">获取单词</button>
+	<div class="container">
+    <div class="vocabul-class-bk-word-list" id="vocabul-id-bk-word-list"></div>
+  </div>
+	<script type="text/javascript" src="js/background.js"></script>
+</body>
+</html>
