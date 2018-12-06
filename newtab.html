@@ -22,12 +22,39 @@
 		padding: 40px;
 		font-size: 16px;
 	}
+
+	 .container {
+		 width: 1024px;
+		 margin: 0 auto;
+	 }
+   #vocabul-id-bk-get-words {
+     width: 100px;
+     height: 24px;
+     margin: 10px auto;
+     display: block;
+     border-radius: 4px;
+     background-color: #03A9F4;
+     color: white;
+     font-size: 14px;
+     font-weight: bold;
+     outline: none;
+     cursor: pointer;
+   }
+   .vocabul-class-bk-word-list {
+	   background: #272b2f;
+     color: silver;
+     padding: 10px;
+     border-radius: 6px;
+   }
 	</style>
+  <link rel="stylesheet" href="./css/custom.css"/>
 </head>
 <body>
-	<div class="center"><p>Vocabul新标签页</p></div>
-	<div class="wrapper">
-		<a href="https://www.baidu.com">百度</a>
-	</div>
+	<!-- <div class="center"><p>Vocabul新标签页</p></div> -->
+  <button id="vocabul-id-bk-get-words">获取单词</button>
+	<div class="container">
+    <div class="vocabul-class-bk-word-list" id="vocabul-id-bk-word-list"></div>
+	  <script type="text/javascript" src="js/newtab.js"></script>
+  </div>
 </body>
 </html>

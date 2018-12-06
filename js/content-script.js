@@ -57,24 +57,33 @@ const SelectedTextHandler = (function () {
       document.body.appendChild(_handler)
 
       _handler.addEventListener('click', function () {
-        _handler.setAttribute('class', CLASS)
         console.log('click handler [text] ->', _text)
-        sendMessageToBackground(_text)
+        _text && sendMessageToBackground(_text)
+        SelectedTextHandler.hide()
+        _text = ''
       })
     },
     show: function () {
       _handler.setAttribute('class', CLASS_SHOW)
     },
-
     moveAndShow: function (rect, text) {
       _handler.style.left = rect.right + 'px'
       _handler.style.top = rect.top + 'px'
       _handler.style.height = (rect.bottom - rect.top) + 'px'
-      _handler.setAttribute('class', CLASS_SHOW)
+      SelectedTextHandler.show()
       _text = text
     },
     hide: function () {
       _handler.setAttribute('class', CLASS)
+    },
+    isSameText: function (text) {
+      return _text === text
+    },
+    clearText: function () {
+      _text = ''
+    },
+    isHander: function (ele) {
+      return _handler === ele
     }
   }
 })()
@@ -84,12 +93,17 @@ function injectSelectedTextHandler (jsPath) {
   SelectedTextHandler.init()
 }
 
-document.addEventListener('mouseup', function () {
+document.addEventListener('mouseup', function (e) {
   var text = getSelectedText()
-  if (text) {
+  if (text && !SelectedTextHandler.isSameText(text)) {
     var rect = getSelectionRect()
     console.log('mouseup -> ', rect)
     SelectedTextHandler.moveAndShow(rect, text)
+  } else {
+    SelectedTextHandler.hide()
+    if (!SelectedTextHandler.isHander(e.target)) {
+      SelectedTextHandler.clearText()
+    }
   }
 })
 
@@ -151,8 +165,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 // 主动发送消息给后台
 // 要演示此功能，请打开控制台主动执行sendMessageToBackground()
-function sendMessageToBackground (message) {
-  chrome.runtime.sendMessage({ greeting: message || '你好，我是content-script呀，我主动发消息给后台！' }, function (...response) {
+function sendMessageToBackground (word) {
+  chrome.runtime.sendMessage({ word }, function (...response) {
     console.log(...response)
     // tip('收到来自后台的回复：' + response)
   })
@@ -194,7 +208,9 @@ function tip (info) {
 
 function addWordToPanel (word) {
   const wc = document.getElementById('vocabul-id-word-panel')
-  const ele = document.createElement('div')
-  ele.innerHTML = `<div class="vocabul-class-word-c">${formatYD(word, true)}</div>`
-  wc.appendChild(ele)
+  if (wc) {
+    const ele = document.createElement('div')
+    ele.innerHTML = `<div class="vocabul-class-word-c">${formatYD(word, true)}</div>`
+    wc.appendChild(ele)
+  }
 }
